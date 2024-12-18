@@ -82,7 +82,7 @@ const CartModal = () => {
         {cart.length > 0 && (
           <div style={{ textAlign: "right", marginTop: "20px" }}>
             <p style={{ fontWeight: "bold" }}>Total: ${getTotalPrice().toFixed(2)}</p>
-            <Button type="primary" onClick={() => alert("Compra confirmada!")}>
+            <Button type="primary" onClick={() => alert("Gracias por su compra")}>
               Comprar Ahora
             </Button>
           </div>

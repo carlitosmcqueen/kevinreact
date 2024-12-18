@@ -5,7 +5,7 @@ import { useCart } from "../context/carrito";
 
 const ProductDetail = () => {
   const { id } = useParams(); // Obtiene el ID del producto desde la URL
-  const [product, setProduct] = useState(null);
+  const [producto, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart(); // Usamos el hook del carrito
 
@@ -28,7 +28,7 @@ const ProductDetail = () => {
     return <h2 style={{ textAlign: "center" }}>Cargando...</h2>;
   }
 
-  if (!product) {
+  if (!producto) {
     return <h2 style={{ textAlign: "center" }}>Producto no encontrado</h2>;
   }
 
@@ -57,8 +57,8 @@ const ProductDetail = () => {
         }}
       >
         <img
-          src={product.image}
-          alt={product.title}
+          src={producto.image}
+          alt={producto.title}
           style={{
             width: "100%",
             maxWidth: "300px",
@@ -87,7 +87,7 @@ const ProductDetail = () => {
               margin: "0 0 10px",
             }}
           >
-            {product.title}
+            {producto.title}
           </h1>
           <p
             style={{
@@ -98,7 +98,7 @@ const ProductDetail = () => {
               padding:"0px 50px"
             }}
           >
-            {product.description}
+            {producto.description}
           </p>
           <div
             style={{
@@ -117,7 +117,7 @@ const ProductDetail = () => {
                 marginTop: "10px",
               }}
             >
-              Precio: ${product.price}
+              Precio: ${producto.price}
             </p>
             <p
               style={{
@@ -127,13 +127,13 @@ const ProductDetail = () => {
                 fontWeight:"bold"
               }}
             >
-              ⭐ {product.rating?.rate} / 5 ({product.rating?.count} reviews)
+              ⭐ {producto.rating?.rate} / 5 ({producto.rating?.count} reviews)
             </p>
           </div>
 
           <Button
             type="primary"
-            onClick={() => addToCart(product)}
+            onClick={() => addToCart(producto)}
             style={{
                 marginTop: "20px",
                 width: "80%",

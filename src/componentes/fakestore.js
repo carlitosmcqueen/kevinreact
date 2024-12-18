@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 
 const FakeStore = () => {
-  const [products, setProducts] = useState([]);
+  const [productos, setProductos] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [buscador, setBuscador] = useState(""); 
   const [loading, setLoading] = useState(true); 
 
 
@@ -15,7 +15,7 @@ const FakeStore = () => {
     fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
       .then((data) => {
-        setProducts(data); 
+        setProductos(data); 
         setFilteredProducts(data);
         setLoading(false);
       })
@@ -24,13 +24,12 @@ const FakeStore = () => {
 
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
+    setBuscador(term);
 
- 
     if (term === "") {
-      setFilteredProducts(products); 
+      setFilteredProducts(productos); 
     } else {
-      const filtered = products.filter((product) =>
+      const filtered = productos.filter((product) =>
         product.title.toLowerCase().includes(term)
       );
       setFilteredProducts(filtered);
@@ -47,7 +46,7 @@ const FakeStore = () => {
             <input
                 type="text"
                 placeholder="Buscar producto por nombre..."
-                value={searchTerm}
+                value={buscador}
                 onChange={handleSearch}
                 style={{
                     width: "100%",
@@ -136,7 +135,6 @@ const FakeStore = () => {
           ⭐ {product.rating?.rate} / 5
         </p>
         <Button
-          type=""
           style={{
             margin: "0 auto",
             marginTop: "auto",
